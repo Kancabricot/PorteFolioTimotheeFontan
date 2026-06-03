@@ -4,26 +4,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Détails du Projet</title>
-    <link rel="stylesheet" href="css/main-style.css">
-    <style>
-        .container { max-width: 800px; margin: 140px auto 40px auto; padding: 0 20px; }
-        .back-link { display: inline-block; padding: 10px 20px; background: #0078d4; color: white; text-decoration: none; border-radius: 4px; font-weight: 500; }
-        .back-link:hover { background: #005a9e; }
-        h1 { font-size: 2.2rem; margin-top: 24px; color: #111; }
-        p { font-size: 1.1rem; line-height: 1.7; color: #444; }
-    </style>
+    <link rel="stylesheet" href="../css/main-style.css">
+    <link rel="stylesheet" href="../css/bubbles.css">
 </head>
+
 <body>
+
 <header id="main-header">
-    <div>
-        <h1>Présentation Autonome</h1>
-        <h2>Détails complets du projet sur page dédiée</h2>
+    <img src="../assets/mainPage/image/profilePicture.png" alt="ProfilePicture">
+    <div class="header-text">
+        <h1>Timothée Fontan</h1>
+        <h2>Game Developer & Gameplay Programmer</h2>
     </div>
+
+    <nav class="header-nav">
+        <a href="about.html" class="nav-link">About me</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
 </header>
-<main class="container">
-    <a href="index.html" class="back-link">← Retour au studio</a>
-    <h1>Étude de cas approfondie</h1>
-    <p>Cette page secondaire se charge lorsque l'utilisateur clique sur une bulle configurée avec un lien classique (`data-type="link"`). Elle offre un espace complet pour vos articles longs ou galeries de photos.</p>
-</main>
+
+<div id="canvas-container">
+
+    <div id="help-popup" class="help-popup">
+        <button class="close-popup-btn" aria-label="Fermer">&times;</button>
+        <div class="popup-content">
+            <span class="popup-icon">💡</span>
+            <div class="popup-text">
+                <h3>Explorez l'espace !</h3>
+                <p><strong>Survolez</strong> une bulle pour en savoir plus, <strong>attrapez-la</strong> pour la déplacer et <strong>cliquez</strong> pour ouvrir le projet.</p>
+            </div>
+        </div>
+        <button class="confirm-popup-btn">J'ai compris !</button>
+    </div>
+
+    <div class="bubble-project"
+         data-size="400"
+         data-type="link"
+         data-img="../assets/mainPage/giff/CDMainPage.gif"
+         data-text="CoreDefender"
+         data-tags="C++:#B163FF, Unreal Engine 5:#305CDE, School Project:#CC7722, PC:#008000"
+         data-url="https://www.youtube.com/watch?v=Aq5WXmQQooo">
+    </div>
+
+</div>
+
+<div id="project-panel" class="side-panel">
+    <div class="panel-os-bar">
+        <span id="panel-title-header">Fiche Projet</span>
+        <div class="panel-controls">
+            <button id="panel-btn-maximize" title="Agrandir">🗖</button>
+            <button id="panel-btn-close" title="Fermer">✕</button>
+        </div>
+    </div>
+    <div class="panel-body"></div>
+</div>
+
+<div id="about-overlay" class="ui-overlay">
+    <div class="overlay-card">
+        <button class="close-overlay-btn" aria-label="Fermer">&times;</button>
+        <h3>About me</h3>
+        <p>Test <strong>Test strong</strong> test continuité</p>
+        <div class="skills-container">
+            <h4>Stack Technique</h4>
+            <div class="skills-tags">
+                <span>Unreal Engine</span><span>Unity</span><span>C++</span><span>C#</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="contact-overlay" class="ui-overlay">
+    <div class="overlay-card">
+        <button class="close-overlay-btn" aria-label="Fermer">&times;</button>
+        <h3>Me contacter</h3>
+        <div class="contact-methods">
+            <a href="mailto:timothee.fontan@gmail.com" class="contact-item">📧 timothee.fontan@gmail.com</a>
+            <a href="https://linkedin.com" target="_blank" class="contact-item">💼 LinkedIn</a>
+        </div>
+    </div>
+</div>
+
+<script src="../js/panel-manager.js"></script>
+<script src="../js/general-ui.js"></script>
+<script src="../js/bubble-core.js"></script>
+
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        if (typeof BubbleEngine !== 'undefined') {
+            new BubbleEngine();
+        }
+    });
+</script>
+
 </body>
 </html>
