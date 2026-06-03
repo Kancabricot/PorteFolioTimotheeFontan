@@ -1,4 +1,3 @@
-// Registre global partagé entre tous nos scripts découplés
 window.BubbleGlobals = {
     draggedBubble: null,
     dragStartX: 0,
@@ -35,21 +34,17 @@ class PanelManager {
         const panelBody = this.panel.querySelector('.panel-body');
         if (!panelBody) return;
 
-        // On vide l'ancien contenu du panel
         panelBody.innerHTML = '';
 
-        // Si la bulle demande un template HTML spécifique
         if (data.template) {
             const templateElement = document.getElementById(data.template);
             if (templateElement) {
-                // Clone le contenu du template HTML et l'injecte
                 const clone = templateElement.content.cloneNode(true);
                 panelBody.appendChild(clone);
             } else {
                 panelBody.innerHTML = `<h1 style="color:red; font-size:18px;">Erreur : Le template "${data.template}" est introuvable dans le HTML.</h1>`;
             }
         } else {
-            // Mode de secours (Fallback) si tu utilises encore l'ancienne méthode par attributs textuels
             panelBody.innerHTML = `
                 <h1 id="panel-main-title">${data.title || 'Projet'}</h1>
                 <div id="panel-media-container">
@@ -63,7 +58,6 @@ class PanelManager {
         this.isMaximized = false;
         this.btnMax.innerText = "🗖";
 
-        // Décale instantanément la zone physique de jeu vers la moitié gauche
         window.BubbleGlobals.currentPlayWidth = window.innerWidth * 0.5;
         window.BubbleGlobals.disablePhysics = false;
     }
@@ -79,7 +73,7 @@ class PanelManager {
             this.panel.className = "side-panel open-full";
             this.btnMax.innerText = "🗗";
             this.isMaximized = true;
-            window.BubbleGlobals.disablePhysics = true; // Pause physique de sécurité en plein écran
+            window.BubbleGlobals.disablePhysics = true;
         } else {
             this.panel.className = "side-panel open-half";
             this.btnMax.innerText = "🗖";

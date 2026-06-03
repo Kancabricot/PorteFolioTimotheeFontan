@@ -37,17 +37,22 @@
     </div>
 
     <div class="bubble-project"
-         data-size="160"
-         data-type="panel"
-         data-template="tpl-projet-interface"
-         data-text="Projet Interface Moderne (Survol)">
+         data-size="250"
+         data-type="link"
+         data-img="assets/mainPage/giff/CDMainPage.gif"
+         data-text="CoreDefender"
+         data-tags="C++:#B163FF, Unreal Engine:#305CDE, School Project:#CC7722"
+         data-url="https://www.youtube.com/watch?v=Aq5WXmQQooo">
     </div>
 
     <div class="bubble-project"
          data-size="180"
          data-type="panel"
-         data-template="tpl-projet-animation"
-         data-text="Animation & Intégration (Survol)">
+         data-img="assets/mainPage/giff/MazeCreation.gif"
+         data-text="MazeGifTest"
+         data-tags="Test:#B163FF"
+         data-template="tpl-projet-animation">
+
     </div>
 
 </div>
@@ -66,8 +71,8 @@
 <div id="about-overlay" class="ui-overlay">
     <div class="overlay-card">
         <button class="close-overlay-btn" aria-label="Fermer">&times;</button>
-        <h3>À propos de moi</h3>
-        <p>Bonjour ! Je suis <strong>Timothée Fontan</strong>, développeur spécialisé dans le gameplay et la programmation de systèmes interactifs.</p>
+        <h3>About me</h3>
+        <p>Test <strong>Test strong</strong> test continuité</p>
         <div class="skills-container">
             <h4>Stack Technique</h4>
             <div class="skills-tags">
@@ -82,48 +87,28 @@
         <button class="close-overlay-btn" aria-label="Fermer">&times;</button>
         <h3>Me contacter</h3>
         <div class="contact-methods">
-            <a href="mailto:timothee.fontan@example.com" class="contact-item">📧 Email</a>
+            <a href="mailto:timothee.fontan@gmail.com" class="contact-item">📧 timothee.fontan@gmail.com</a>
             <a href="https://linkedin.com" target="_blank" class="contact-item">💼 LinkedIn</a>
         </div>
     </div>
 </div>
 
-<template id="tpl-projet-interface">
-    <h1>Interface Tactique RPG</h1>
-    <p class="project-subtitle">UI Design & Architecture C++</p>
-
-    <div class="custom-media-wrapper">
-        <img src="https://picsum.photos/600/400?random=1" alt="Main UI Screen" style="width:100%; border-radius:8px;">
-    </div>
-
-    <p>Voici un paragraphe descriptif rédigé directement en HTML pur. Tu peux ajouter des listes structurales ou diviser tes sections.</p>
-
-    <div style="display: flex; gap: 10px; margin: 15px 0;">
-        <img src="https://picsum.photos/300/200?random=10" alt="Detail 1" style="width:50%; border-radius:6px;">
-        <img src="https://picsum.photos/300/200?random=11" alt="Detail 2" style="width:50%; border-radius:6px;">
-    </div>
-
-    <h3>Points Clés</h3>
-    <ul>
-        <li>Optimisation du Draw Call de l'UI</li>
-        <li>Système de navigation entièrement compatible Manette / Clavier</li>
-    </ul>
-</template>
-
 <template id="tpl-projet-animation">
-    <h1>Cinématique & Fluides</h1>
+    <h1>New panel system by template</h1>
 
     <div class="gif-container" style="text-align: center; margin: 20px 0;">
         <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3B0ZndpNm1uZXp5bXN0Y2g5Y29ndm94N3Znd2N0YjZpZndidm9pbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3knKct3fGqxhK/giphy.gif" alt="Fluid Simulation" style="width:100%; border-radius:12px;">
-        <em style="font-size: 13px; color: #666;">Démonstration en temps réel du solveur de particule (Unity)</em>
+        <em style="font-size: 13px; color: #666;">Text test behind image</em>
     </div>
 
-    <h2>Description Technique</h2>
-    <p>Ce volet intègre nativement du contenu riche. Tu peux même y insérer des balises de vidéo HTML5 standard ou des iframes YouTube :</p>
+    <h2>Description</h2>
+    <p>Loreil impsum, je ne sais pas quoi écrire dans tout les cas ça ne restera pas car c'est juste pour tester mon flex css et tout le touin touin</p>
 
-    <p>Le fait de travailler directement dans le template HTML t'évite d'avoir à modifier tes codes JavaScript lorsque tu ajoutes de nouvelles étapes ou des images à tes comptes-rendus de dev.</p>
+    <p>C'est quand même bien mieux de passer en html pour créer le panel plutot que de passer en js ptdr pourquoi je suis passer en js merde le temp perdu</p>
+    <img src="assets/mainPage/giff/MazeCreation.gif">
+
+    <h2>Test scroll !</h2>
 </template>
-
 
 <script src="js/panel-manager.js"></script>
 <script src="js/general-ui.js"></script>

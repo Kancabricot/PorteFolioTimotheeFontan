@@ -2,12 +2,11 @@ class BaseBubble {
     constructor(htmlElement) {
         this.el = htmlElement;
 
-        // Données d'origine récupérées sur le HTML
         this.size = parseInt(this.el.dataset.size) || 150;
         this.originalSize = this.size;
         this.img = this.el.dataset.img || '';
         this.text = this.el.dataset.text || '';
-        this.type = this.el.dataset.type || 'link'; // 'link' ou 'panel'
+        this.type = this.el.dataset.type || 'link';
         this.url = this.el.dataset.url || null;
         this.enableHover = this.el.dataset.hover !== 'false';
 
@@ -15,12 +14,10 @@ class BaseBubble {
         this.mass = this.size;
         this.headerHeight = document.getElementById('main-header').offsetHeight || 90;
 
-        // Capteurs physiques de pression de ton script stable
         this.hitWall = false;
         this.hitBubble = false;
         this.overlapMax = 0;
 
-        // Positionnement initial central de ton script stable
         this.x = window.innerWidth / 2 + (Math.random() * 400 - 200);
         this.y = (window.innerHeight + this.headerHeight) / 2 + (Math.random() * 400 - 200);
         this.vx = (Math.random() - 0.5) * 2;
@@ -37,10 +34,54 @@ class BaseBubble {
         if (this.img) this.el.style.backgroundImage = `url(${this.img})`;
 
         if (this.enableHover && this.text) {
+            // 1. Création de l'écran noir de survol
             const info = document.createElement('div');
             info.className = 'bubble-info';
-            info.innerText = this.text;
-            if (this.size < 140) info.style.fontSize = '0.75rem';
+
+            // 2. Création et injection du titre
+            const titleEl = document.createElement('div');
+            titleEl.className = 'bubble-hover-title';
+            titleEl.innerText = this.text;
+
+            // Adaptabilité de la taille du titre si la bulle est petite
+            if (this.size < 150) titleEl.style.fontSize = '0.8rem';
+            info.appendChild(titleEl);
+
+            // 3. Lecture et découpage des boîtes de couleur (tags)
+            const rawTags = this.el.dataset.tags;
+            if (rawTags) {
+                const tagsContainer = document.createElement('div');
+                tagsContainer.className = 'bubble-tags-container';
+
+                // On sépare la chaîne par les virgules pour avoir chaque boîte
+                const tagsArray = rawTags.split(',');
+
+                tagsArray.forEach(tagData => {
+                    // On sépare le mot de sa couleur par le symbole ":"
+                    const parts = tagData.split(':');
+                    const tagName = parts[0] ? parts[0].trim() : '';
+                    const tagColor = parts[1] ? parts[1].trim() : '#333333'; // Gris par défaut si oublié
+
+                    if (tagName !== '') {
+                        // Création du badge HTML
+                        const tagBadge = document.createElement('span');
+                        tagBadge.className = 'bubble-tag';
+                        tagBadge.innerText = tagName;
+                        tagBadge.style.backgroundColor = tagColor; // Application de ta couleur !
+
+                        // Sécurité : si la bulle est petite, on réduit aussi la taille des boîtes
+                        if (this.size < 160) {
+                            tagBadge.style.fontSize = '0.6rem';
+                            tagBadge.style.padding = '2px 6px';
+                        }
+
+                        tagsContainer.appendChild(tagBadge);
+                    }
+                });
+
+                info.appendChild(tagsContainer);
+            }
+
             this.el.appendChild(info);
         }
     }

@@ -47,7 +47,6 @@ body, html {
     margin-right: 20px;
     flex-shrink: 0;
 
-    /* Technique du triple saut de shadow pour simuler la bordure, l'espace vide, et l'outline */
     box-shadow:
             0 0 0 3px #222,                        /* 1. Ta bordure noire d'origine */
             0 0 0 6px rgba(255, 255, 255, 0.85),   /* 2. Le faux décalage (offset) transparent/blanc */
@@ -75,37 +74,30 @@ body, html {
     line-height: 1.2;
 }
 
-/* Bloc Profil (Photo + Textes alignés horizontalement) */
 .header-profile {
     display: flex;
     align-items: center;
-    gap: 16px; /* Espace entre la photo et le texte */
+    gap: 16px;
 }
 
-/* Ta superbe photo de profil bien ronde */
 .profile-pic {
     width: 52px;
     height: 52px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid rgba(0, 120, 212, 0.4); /* Fin liseré bleu discret */
+    border: 2px solid rgba(0, 120, 212, 0.4);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .header-titles h1 { margin: 0; font-size: 17px; color: #111; font-weight: 600; }
 .header-titles h2 { margin: 3px 0 0 0; font-size: 13px; color: #666; font-weight: normal; }
 
-/* Bloc Navigation à droite */
-/* === POSITIONNEMENT ET ANIMATION DE LA NAVIGATION === */
-
-/* 1. Pousse la navigation tout à droite du header */
 .header-nav {
-    margin-left: auto; /* La magie du flexbox pour pousser le bloc à droite */
+    margin-left: auto;
     display: flex;
-    gap: 30px;         /* Espace de 30px entre "About me" et "Contact" */
+    gap: 30px;
 }
 
-/* 2. Style de base des liens */
 .nav-link {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1rem;
@@ -117,32 +109,28 @@ body, html {
     transition: color 0.2s ease;
 }
 
-/* 3. Le trait de soulignement invisible au repos */
 .nav-link::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 2px;                  /* Épaisseur de ton soulignement */
-    background-color: #222;       /* Couleur de la ligne */
-    transform: scaleX(0);         /* Écrasé à 0% de largeur par défaut */
-    transform-origin: bottom right; /* Disparaît vers la droite quand on quitte le survol */
-    transition: transform 0.3s ease; /* Fluidité de l'effet */
+    height: 2px;
+    background-color: #222;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
 }
 
-/* 4. Animation au survol (Hover) */
 .nav-link:hover::after {
-    transform: scaleX(1);        /* S'étire à 100% de la largeur du mot */
-    transform-origin: bottom left; /* Apparaît de la gauche vers la droite */
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
 
-/* Optionnel : Rend le texte un poil plus sombre au survol pour renforcer l'effet */
 .nav-link:hover {
     color: #000;
 }
 
-/* Style "Bouton Textuel" épuré */
 .nav-btn {
     font-size: 0.92rem;
     color: #333;
@@ -153,14 +141,13 @@ body, html {
     transition: background-color 0.2s, color 0.2s;
 }
 
-/* === FENÊTRES OVERLAYS INTERACTIVES (About & Contact) === */
 .ui-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(239, 239, 244, 0.3); /* Base de couleur identique à ton body */
-    backdrop-filter: blur(25px); /* Flou cinématique intense */
+    background: rgba(239, 239, 244, 0.3);
+    backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
-    z-index: 10005; /* Passe devant le header (1000) et le canvas */
+    z-index: 10005;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -169,13 +156,12 @@ body, html {
     transition: opacity 0.4s ease;
 }
 
-/* État Actif */
 .ui-overlay.active {
     opacity: 1;
     pointer-events: auto;
 }
 
-/* Carte centrale de l'overlay */
+
 .overlay-card {
     background: rgba(255, 255, 255, 0.82);
     border: 1px solid rgba(255, 255, 255, 0.5);
@@ -194,7 +180,6 @@ body, html {
     transform: scale(1) translateY(0);
 }
 
-/* Bouton de fermeture des volets */
 .close-overlay-btn {
     position: absolute;
     top: 24px;
@@ -213,7 +198,6 @@ body, html {
     transform: scale(1.1);
 }
 
-/* Intérieur des cartes */
 .overlay-card h3 {
     margin: 0 0 15px 0;
     font-size: 1.75rem;
@@ -228,7 +212,6 @@ body, html {
     margin: 0 0 15px 0;
 }
 
-/* Section compétences (About) */
 .skills-container h4 {
     margin: 25px 0 10px 0;
     font-size: 0.9rem;
@@ -252,7 +235,6 @@ body, html {
     font-weight: 500;
 }
 
-/* Liens réseaux et contacts (Contact) */
 .contact-methods {
     display: flex;
     flex-direction: column;
@@ -300,13 +282,11 @@ body, html {
     font-weight: 500;
 }
 
-/* Effet au survol des boutons */
 .nav-btn:hover {
-    background-color: rgba(0, 0, 0, 0.05); /* Petit fond grisé discret */
-    color: #0078d4; /* Le texte passe au bleu Windows */
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #0078d4;
 }
 
-/* === DESIGN DE TA POP-UP D'ONBOARDING === */
 .popup-overlay {
     position: fixed;
     top: 0;
@@ -316,7 +296,7 @@ body, html {
     background: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
-    z-index: 10000; /* Au-dessus même du header */
+    z-index: 10000;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -376,9 +356,6 @@ body, html {
 }
 .confirm-popup-btn:hover { background: #005a9e; }
 
-/* ==========================================
-   STYLE DE LA POP-UP D'AIDE (TOAST COIN INFERIEUR)
-   ========================================== */
 .help-popup {
     position: fixed;
     bottom: 20px;
@@ -392,25 +369,23 @@ body, html {
     padding: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    z-index: 10000; /* Priorité maximale sur l'écran */
+    z-index: 10000;
     display: flex;
     flex-direction: column;
     gap: 15px;
     transform: translateY(100px);
     opacity: 0;
     transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease;
-    pointer-events: none; /* Évite de bloquer les clics avant l'apparition */
+    pointer-events: none;
     box-sizing: border-box;
 }
 
-/* Classe d'activation */
 .help-popup.active {
     transform: translateY(0);
     opacity: 1;
     pointer-events: auto;
 }
 
-/* Bouton de fermeture d'angle */
 .close-popup-btn {
     position: absolute;
     top: 10px;
@@ -428,7 +403,6 @@ body, html {
     color: #000;
 }
 
-/* Structure du contenu interne */
 .popup-content {
     display: flex;
     gap: 12px;
@@ -454,7 +428,6 @@ body, html {
     line-height: 1.4;
 }
 
-/* Bouton principal "J'ai compris" */
 .confirm-popup-btn {
     background: #111;
     color: #fff;
