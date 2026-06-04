@@ -140,8 +140,8 @@ class BubbleEngine {
     init() {
         const elements = document.querySelectorAll('.bubble-project');
         elements.forEach(el => {
-            if (typeof AttractionLawBubble !== 'undefined') {
-                this.bubbles.push(new AttractionLawBubble(el));
+            if (typeof GravityBubble !== 'undefined') {
+                this.bubbles.push(new GravityBubble(el)); // Charge tes nouvelles bulles à gravité !
             } else {
                 this.bubbles.push(new BaseBubble(el));
             }
@@ -158,10 +158,21 @@ class BubbleEngine {
     handleMouseMove(e) {
         const dragged = window.BubbleGlobals.draggedBubble;
         if (dragged) {
+            // 1. Calcul manuel du déplacement (beaucoup plus stable que e.movementX)
+            const deltaX = e.clientX - dragged.x;
+            const deltaY = e.clientY - dragged.y;
+
+            // 2. Mise à jour de la position de la bulle
             dragged.x = e.clientX;
             dragged.y = e.clientY;
-            dragged.vx = e.movementX * 0.3;
-            dragged.vy = e.movementY * 0.3;
+
+            // 3. SYSTÈME ANTI-COUPURE (Lissage de l'élan)
+            // On garde 60% de la vitesse précédente et on ajoute 40% du nouveau mouvement.
+            // Cela crée un "historique" de vitesse qui empêche le lancer de rater.
+            const throwForce = 0.35; // Augmente cette valeur si tu veux des lancers plus puissants !
+
+            dragged.vx = (dragged.vx * 0.6) + (deltaX * throwForce * 0.4);
+            dragged.vy = (dragged.vy * 0.6) + (deltaY * throwForce * 0.4);
         }
     }
 

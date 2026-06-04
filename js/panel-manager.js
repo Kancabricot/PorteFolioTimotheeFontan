@@ -54,6 +54,13 @@ class PanelManager {
             `;
         }
 
+        const steamPlaceholder = panelBody.querySelector('[data-steam-project]');
+        if (steamPlaceholder && typeof SteamExplorer !== 'undefined') {
+            const projectId = steamPlaceholder.getAttribute('data-steam-project');
+            // On injecte le module Steam directement dans cette balise
+            new SteamExplorer(projectId, steamPlaceholder);
+        }
+
         this.panel.className = "side-panel open-half";
         this.isMaximized = false;
         this.btnMax.innerText = "🗖";
