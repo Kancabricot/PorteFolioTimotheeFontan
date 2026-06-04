@@ -34,42 +34,34 @@ class BaseBubble {
         if (this.img) this.el.style.backgroundImage = `url(${this.img})`;
 
         if (this.enableHover && this.text) {
-            // 1. Création de l'écran noir de survol
             const info = document.createElement('div');
             info.className = 'bubble-info';
 
-            // 2. Création et injection du titre
             const titleEl = document.createElement('div');
             titleEl.className = 'bubble-hover-title';
             titleEl.innerText = this.text;
 
-            // Adaptabilité de la taille du titre si la bulle est petite
             if (this.size < 150) titleEl.style.fontSize = '0.8rem';
             info.appendChild(titleEl);
 
-            // 3. Lecture et découpage des boîtes de couleur (tags)
             const rawTags = this.el.dataset.tags;
             if (rawTags) {
                 const tagsContainer = document.createElement('div');
                 tagsContainer.className = 'bubble-tags-container';
 
-                // On sépare la chaîne par les virgules pour avoir chaque boîte
                 const tagsArray = rawTags.split(',');
 
                 tagsArray.forEach(tagData => {
-                    // On sépare le mot de sa couleur par le symbole ":"
                     const parts = tagData.split(':');
                     const tagName = parts[0] ? parts[0].trim() : '';
-                    const tagColor = parts[1] ? parts[1].trim() : '#333333'; // Gris par défaut si oublié
+                    const tagColor = parts[1] ? parts[1].trim() : '#333333';
 
                     if (tagName !== '') {
-                        // Création du badge HTML
                         const tagBadge = document.createElement('span');
                         tagBadge.className = 'bubble-tag';
                         tagBadge.innerText = tagName;
-                        tagBadge.style.backgroundColor = tagColor; // Application de ta couleur !
+                        tagBadge.style.backgroundColor = tagColor;
 
-                        // Sécurité : si la bulle est petite, on réduit aussi la taille des boîtes
                         if (this.size < 160) {
                             tagBadge.style.fontSize = '0.6rem';
                             tagBadge.style.padding = '2px 6px';
@@ -139,10 +131,14 @@ class BubbleEngine {
 
     init() {
         const elements = document.querySelectorAll('.bubble-project');
+
         elements.forEach(el => {
-            if (typeof GravityBubble !== 'undefined') {
-                this.bubbles.push(new GravityBubble(el)); // Charge tes nouvelles bulles à gravité !
+            if (el.classList.contains('gravity') && typeof GravityBubble !== 'undefined') {
+                this.bubbles.push(new GravityBubble(el));
+            } else if (el.classList.contains('attraction') && typeof AttractionLawBubble !== 'undefined') {
+                this.bubbles.push(new AttractionLawBubble(el));
             } else {
+                // Fallback de sécurité
                 this.bubbles.push(new BaseBubble(el));
             }
         });
@@ -158,18 +154,13 @@ class BubbleEngine {
     handleMouseMove(e) {
         const dragged = window.BubbleGlobals.draggedBubble;
         if (dragged) {
-            // 1. Calcul manuel du déplacement (beaucoup plus stable que e.movementX)
             const deltaX = e.clientX - dragged.x;
             const deltaY = e.clientY - dragged.y;
 
-            // 2. Mise à jour de la position de la bulle
             dragged.x = e.clientX;
             dragged.y = e.clientY;
 
-            // 3. SYSTÈME ANTI-COUPURE (Lissage de l'élan)
-            // On garde 60% de la vitesse précédente et on ajoute 40% du nouveau mouvement.
-            // Cela crée un "historique" de vitesse qui empêche le lancer de rater.
-            const throwForce = 0.35; // Augmente cette valeur si tu veux des lancers plus puissants !
+            const throwForce = 0.35;
 
             dragged.vx = (dragged.vx * 0.6) + (deltaX * throwForce * 0.4);
             dragged.vy = (dragged.vy * 0.6) + (deltaY * throwForce * 0.4);
@@ -181,11 +172,10 @@ class BubbleEngine {
         if (dragged) {
             const dist = Math.hypot(e.clientX - window.BubbleGlobals.dragStartX, e.clientY - window.BubbleGlobals.dragStartY);
 
-            if (dist < 5) { // Clic franc
+            if (dist < 5) {
                 if (dragged.type === 'link' && dragged.url) {
                     window.location.href = dragged.url;
                 } else if (dragged.type === 'panel') {
-                    // Transmet l'ensemble du dataset (incluant le nouveau data-template)
                     window.BubbleGlobals.panelManager.open(dragged.el.dataset);
                 }
             }
