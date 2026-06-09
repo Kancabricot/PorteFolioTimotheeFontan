@@ -1,36 +1,41 @@
 .steam-explorer-container {
     display: flex;
+    flex-direction: row;
     gap: 20px;
-    background-color: #222222; /* Fond gris neutre générique */
+    background-color: #ffffff;
     padding: 20px;
-    border: 1px solid #333333;
-    border-radius: 6px;
-    color: #ffffff;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    height: auto;
+    border: 4px solid #1a1a1a;
+    border-radius: 16px;
+    overflow: hidden;
+    color: #1a1a1a;
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    box-shadow: 6px 6px 0px #1a1a1a;
     box-sizing: border-box;
     margin-bottom: 25px;
+    width: 100%;
+    max-width: 100%;
+    image-rendering: pixelated;
 }
 
 .explorer-media-column {
-    flex: 2;
+    flex: 1.6;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 15px;
-    min-width: 0;
 }
-
 
 .main-media-viewer {
     width: 100%;
     aspect-ratio: 16/9;
-    background-color: #111111;
-    border: 1px solid #444444;
+    background-color: #1a1a1a;
+    border: 4px solid #1a1a1a;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    border-radius: 4px;
+    border-radius: 12px;
 }
 
 .main-media-viewer img {
@@ -39,135 +44,148 @@
     object-fit: cover;
 }
 
-
 .explorer-carousel-navbar {
     display: flex;
     align-items: center;
-    background-color: #1a1a1a;
+    background-color: #f6f4ee;
     padding: 8px;
-    border-radius: 4px;
-    border: 1px solid #333333;
+    border-radius: 8px;
+    border: 3px solid #1a1a1a;
     gap: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    min-width: 0;
+    position: relative;
+    overflow: hidden;
+}
+.explorer-carousel-navbar .carousel-nav-btn:last-child {
+    margin-left: auto;
 }
 
-
 .carousel-nav-btn {
-    background: #333333;
-    border: 1px solid #444444;
-    color: #ffffff;
-    font-size: 1rem;
-    padding: 6px 12px;
+    background: #fff8db;
+    border: 3px solid #1a1a1a;
+    color: #1a1a1a;
+    font-family: 'VT323', monospace;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 2px 12px;
     cursor: pointer;
-    border-radius: 4px;
-    transition: background 0.2s, color 0.2s;
+    border-radius: 6px;
+    box-shadow: 2px 2px 0px #1a1a1a;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 10;
 }
 
 .carousel-nav-btn:hover {
-    background: #555555;
+    background: #ffee75;
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0px #1a1a1a;
 }
-
-.carousel-thumbnails-track-wrapper {
-    flex: 1;
-    overflow: hidden;
+.carousel-nav-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0px 0px 0px #1a1a1a;
 }
 
 .carousel-thumbnails-track {
     display: flex;
-    gap: 10px;
-    transition: transform 0.3s ease-out;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 2px 0;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.15);
+    will-change: transform;
 }
 
+.carousel-thumbnails-track::-webkit-scrollbar {
+    height: 6px;
+}
+
+.carousel-thumbnails-track::-webkit-scrollbar-thumb {
+    background: #1a1a1a;
+    border-radius: 3px;
+}
 
 .thumbnail-item {
-    min-width: 100px;
-    height: 60px;
-    background-color: #111111;
+    flex: 0 0 80px;
+    width: 80px;
+    height: 50px;
+    background-color: #1a1a1a;
     cursor: pointer;
-    opacity: 0.5;
-    border: 2px solid transparent;
-    border-radius: 3px;
+    opacity: 0.6;
+    border: 3px solid #1a1a1a;
+    border-radius: 6px;
     overflow: hidden;
-    transition: all 0.2s;
+    box-sizing: border-box;
 }
-
 .thumbnail-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-
 .thumbnail-item:hover {
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 .thumbnail-item.active {
     opacity: 1;
-    border-color: #ffffff;
+    border-color: #b163ff;
+    box-shadow: 2px 2px 0px #1a1a1a;
 }
 
 .explorer-info-column {
     flex: 1;
+    min-width: 200px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    background-color: #1a1a1a;
-    border: 1px solid #333333;
+    gap: 12px;
+    background-color: #ffffff;
+    border: 3px solid #1a1a1a;
     padding: 15px;
-    border-radius: 4px;
-    min-width: 250px;
+    border-radius: 12px;
+    box-sizing: border-box;
 }
-
 
 .explorer-logo-wrapper {
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #333333;
+    padding-bottom: 8px;
+    border-bottom: 3px dashed #1a1a1a;
 }
 
-.explorer-project-logo {
+.explorer-logo-wrapper img {
     max-width: 100%;
-    max-height: 70px;
+    max-height: 110px;
+    width: auto;
+    height: auto;
     object-fit: contain;
-    transition: opacity 0.2s ease-in-out;
+    border-radius: 12px;
 }
-
 
 .explorer-description-box {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    color: #cccccc;
-    overflow-y: auto;
-    flex-grow: 1;
+    font-size: 19px;
+    line-height: 1.2;
 }
 
 .explorer-description-box strong {
-    color: #ffffff;
+    font-family: 'VT323', monospace;
+    font-size: 24px;
+    color: #b163ff;
     display: block;
-    margin-bottom: 6px;
-    font-size: 1rem;
-}
-
-.panel-extended-content {
-    padding: 10px 5px;
-    color: #eeeeee;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    margin-bottom: 4px;
 }
 
 .panel-extended-content h2 {
-    color: #ffffff;
-    font-size: 1.25rem;
-    border-bottom: 1px solid #333333;
-    padding-bottom: 8px;
-    margin-bottom: 15px;
-    letter-spacing: 0.5px;
-}
-
-.project-full-description {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: #b3b3b3;
-    white-space: pre-line;
+    font-family: 'VT323', monospace;
+    font-size: 32px;
+    font-weight: normal;
+    border-bottom: 3px dashed #1a1a1a;
+    padding-bottom: 4px;
+    color: #1a1a1a;
 }

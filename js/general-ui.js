@@ -1,7 +1,6 @@
-
 window.addEventListener('DOMContentLoaded', () => {
     initOnboardingPopup();
-    initNavigationOverlays(); // <-- Activé ici !
+    initNavigationOverlays();
 });
 
 function initOnboardingPopup() {
@@ -52,7 +51,6 @@ function initNavigationOverlays() {
         const closeBtn = overlay.querySelector('.close-overlay-btn');
         const closeOverlay = () => overlay.classList.remove('active');
 
-        // Fermeture via le bouton d'angle (X)
         if (closeBtn) closeBtn.addEventListener('click', closeOverlay);
 
         overlay.addEventListener('click', (e) => {

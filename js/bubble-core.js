@@ -138,7 +138,6 @@ class BubbleEngine {
             } else if (el.classList.contains('attraction') && typeof AttractionLawBubble !== 'undefined') {
                 this.bubbles.push(new AttractionLawBubble(el));
             } else {
-                // Fallback de sécurité
                 this.bubbles.push(new BaseBubble(el));
             }
         });

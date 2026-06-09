@@ -3,20 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Détails du Projet</title>
+    <title>Détails du Projet - CoreDefender</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=VT323&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="../css/main-style.css">
     <link rel="stylesheet" href="../css/bubbles.css">
     <link rel="stylesheet" href="../css/steam-explorer.css">
-    <link rel="stylesheet" href="../css/basketball.css">
 </head>
 
 <body>
 
 <header id="main-header">
-    <img src="../assets/mainPage/image/profilePicture.png" alt="ProfilePicture">
-    <div class="header-text">
-        <h1>Timothée Fontan</h1>
-        <h2>Game Developer & Gameplay Programmer</h2>
+    <div class="header-profile">
+        <div class="profile-frame">
+            <img src="../assets/mainPage/image/profilePicture.png" alt="ProfilePicture">
+        </div>
+        <div class="header-text">
+            <h1>Timothée Fontan</h1>
+            <h2>Game Developer & Gameplay Programmer</h2>
+        </div>
     </div>
 
     <nav class="header-nav">
@@ -25,19 +32,6 @@
     </nav>
 </header>
 
-<div id="basketball-scoreboard">
-    <div class="board-header">SCOREBOARD</div>
-    <div class="board-main">
-        <div class="board-section">
-            <div class="board-label">HOME</div>
-            <div id="score-display" class="board-digits">000</div>
-        </div>
-        <div class="board-section central">
-            <div class="board-label">PERIOD</div>
-            <div class="board-digits sub">1</div>
-        </div>
-    </div>
-</div>
 
 <div id="canvas-container">
 
@@ -53,7 +47,7 @@
             <span class="popup-icon">💡</span>
             <div class="popup-text">
                 <h3>Explorez l'espace !</h3>
-                <p><strong>Survolez</strong> une bulle pour en savoir plus, <strong>attrapez-la</strong> pour la déplacer et <strong>cliquez</strong> pour ouvrir le projet.</p>
+                <p><strong>Survolez</strong> une bulle pour en savoir plus, <strong>attrapez-la</strong> pour la déplacer et <strong>cliquez</strong> pour l'ouvrir.</p>
             </div>
         </div>
         <button class="confirm-popup-btn">J'ai compris !</button>
@@ -90,79 +84,4 @@
         <div class="skills-container">
             <h4>Stack Technique</h4>
             <div class="skills-tags">
-                <span>Unreal Engine</span><span>Unity</span><span>C++</span><span>C#</span>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="contact-overlay" class="ui-overlay">
-    <div class="overlay-card">
-        <button class="close-overlay-btn" aria-label="Fermer">&times;</button>
-        <h3>Me contacter</h3>
-        <div class="contact-methods">
-            <a href="mailto:timothee.fontan@gmail.com" class="contact-item">📧 timothee.fontan@gmail.com</a>
-            <a href="https://linkedin.com" target="_blank" class="contact-item">💼 LinkedIn</a>
-        </div>
-    </div>
-</div>
-
-
-<template id="tpl-turret">
-    <h1>Je veux !</h1>
-
-    <div data-steam-project="core-defender"></div>
-
-    <h2>Zaz</h2>
-    <p>Donnez-moi une suite au Ritz, je n'en veux pas
-        Des bijoux de chez Chanel, je n'en veux pas
-        Donnez-moi une limousine, j'en ferais quoi ?</p>
-
-    <div class="gif-container" style="text-align: center; margin: 20px 0;">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3B0ZndpNm1uZXp5bXN0Y2g5Y29ndm94N3Znd2N0YjZpZndidm9pbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3knKct3fGqxhK/giphy.gif" alt="Fluid Simulation" style="width:100%; border-radius:12px;">
-        <em style="font-size: 13px; color: #666;">Je veux d'l'amour, d'la joie, de la bonne humeur
-            C'n'est pas votre argent qui f'ra mon bonheur
-            Moi, j'veux crever la main sur le cœur (Pa-pala, pa-pa-pala)
-            Allons ensemble, découvrir ma liberté</em>
-    </div>
-
-    <p>Offrez-moi du personnel, j'en ferais quoi ?
-        Un manoir à Neuchâtel, c'n'est pas pour moi
-        Offrez-moi la Tour Eiffel, j'en ferais quoi ? (Pa-pala, pa-pa-pala)
-        (Cha-lapapa-dapa-papa-lapa-lapa-ladee-dada-papa)
-
-        Je veux d'l'amour, d'la joie, de la bonne humeur
-        C'n'est pas votre argent qui f'ra mon bonheur
-        Moi, j'veux crever la main sur le cœur (Pa-pala, pa-pa-pala)
-        Allons ensemble, découvrir ma liberté
-        Oubliez donc tous vos clichés
-        Bienvenue dans ma réalité
-
-        J'en ai marre d'vos bonnes manières, c'est trop pour moi
-        Moi, je mange avec les mains et j'suis comme ça
-        Je parle fort et je suis franche, excusez-moi
-        Finie l'hypocrisie moi j'me casse de là
-        J'en ai marre des langues de bois
-        Regardez moi, toute manière j'vous en veux pas et j'suis comme ça
-        J'suis comme ça (Pa-pala, pa-pa-pala)</p>
-</template>
-
-
-<script src="../js/panel-manager.js"></script>
-<script src="../js/general-ui.js"></script>
-<script src="../js/bubble-core.js"></script>
-<script src="../js/motion-gravity.js"></script>
-<script src="../js/basketball-game.js"></script>
-<script src="../js/steam-explorer.js"></script>
-
-
-<script>
-    window.addEventListener('DOMContentLoaded', () => {
-        if (typeof BubbleEngine !== 'undefined') {
-            new BubbleEngine();
-        }
-    });
-</script>
-
-</body>
-</html>
+                <span>Unreal Engine</span><span>Unity
