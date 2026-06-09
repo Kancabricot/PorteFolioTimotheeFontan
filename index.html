@@ -137,4 +137,46 @@
         <div class="skills-container">
             <h4>Stack Technique</h4>
             <div class="skills-tags">
-                <span>
+                <span>Unreal Engine</span><span>Unity</span><span>C++</span><span>C#</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="contact-overlay" class="ui-overlay">
+    <div class="overlay-card">
+        <button class="close-overlay-btn" aria-label="Fermer">&times;</button>
+        <h3>Me contacter</h3>
+        <div class="contact-methods">
+            <a href="mailto:timothee.fontan@gmail.com" class="contact-item">📧 timothee.fontan@gmail.com</a>
+            <a href="https://linkedin.com" target="_blank" class="contact-item">💼 LinkedIn</a>
+        </div>
+    </div>
+</div>
+
+<template id="tpl-aboutme">
+    <h1>About me</h1>
+    <div class="gif-container" style="text-align: center; margin: 20px 0;">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3B0ZndpNm1uZXp5bXN0Y2g5Y29ndm94N3Znd2N0YjZpZndidm9pbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3knKct3fGqxhK/giphy.gif" alt="Fluid Simulation" style="width:100%; border-radius:12px; border: 3px solid #1a1a1a;">
+        <em style="font-size: 14px; color: #444; font-family: 'VT323', monospace; display:block; margin-top:5px;">Démonstration en temps réel du solveur de particule (Unity)</em>
+    </div>
+    <h2>Description Technique</h2>
+    <p>Ce volet intègre nativement du contenu riche. Tu peux même y insérer des balises de vidéo HTML5 standard ou des iframes YouTube :</p>
+    <p>Le fait de travailler directement dans le template HTML t'évite d'avoir à modifier tes codes JavaScript lorsque tu ajoutes de nouvelles étapes ou des images à tes comptes-rendus de dev.</p>
+</template>
+
+<script src="js/panel-manager.js"></script>
+<script src="js/general-ui.js"></script>
+<script src="js/bubble-core.js"></script>
+<script src="js/motion-attraction.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        if (typeof BubbleEngine !== 'undefined') {
+            new BubbleEngine();
+        }
+    });
+</script>
+
+</body>
+</html>
