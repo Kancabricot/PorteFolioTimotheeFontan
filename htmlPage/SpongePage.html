@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails du Projet - Sponge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=VT323&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/main-style.css">
+    <link rel="stylesheet" href="../css/bubbles.css">
+    <link rel="stylesheet" href="../css/steam-explorer.css">
+</head>
+
+<body>
+
+<header id="main-header" class="project-header">
+
+    <div class="header-decor-img left-decor">
+        <img src="../assets/sponge/image/SpongJauneLogo.png" alt="Décor Gauche">
+    </div>
+
+    <div class="header-project-title">
+        <h1>Sponge</h1>
+        <p class="project-subtitle">Order from the Montpellier town hall</p>
+    </div>
+
+    <div class="header-right-side">
+        <a href="https://orianneg.itch.io/sponge" target="_blank" class="project-action-btn">
+            See project 🚀
+        </a>
+
+        <div class="header-decor-img right-decor">
+            <img src=../assets/sponge/image/SpongVertLogo.png alt="Décor Droite">
+        </div>
+    </div>
+</header>
+
+
+<div id="canvas-container">
+
+    <div class="bubble-project motion gravity"
+         data-size="325"
+         data-type="panel"
+         data-img="../assets/sponge/image/SpongePresentationPage.png"
+         data-text="Project presentation"
+         data-tags="presentation: #B163FF"
+         data-template="tpl-presentation"
+         data-url="https://www.youtube.com/watch?v=Aq5WXmQQooo">
+    </div>
+
+    <div class="bubble-project motion gravity"
+         data-size="400"
+         data-type="panel"
+         data-img="../assets/sponge/gif/SpongeFillAndShoot.gif"
+         data-text="Sponge Player"
+         data-tags="presentation: #B163FF"
+         data-template="tpl-player"
+         data-url="https://www.youtube.com/watch?v=Aq5WXmQQooo">
+    </div>
+
+    <div class="bubble-project motion gravity"
+         data-size="350"
+         data-type="panel"
+         data-important="true"
+         data-img="../assets/forAllProject/OptimizationLogo.jpg"
+         data-text="Optimization"
+         data-tags="presentation: #B163FF"
+         data-template="tpl-Optimization"
+         data-url="https://www.youtube.com/watch?v=Aq5WXmQQooo">
+    </div>
+
+</div>
+
+<div id="project-panel" class="side-panel">
+    <div class="panel-os-bar">
+        <span id="panel-title-header">Fiche Projet</span>
+        <div class="panel-controls">
+            <button id="panel-btn-maximize" title="Agrandir">🗖</button>
+            <button id="panel-btn-close" title="Fermer">✕</button>
+        </div>
+    </div>
+    <div class="panel-body"></div>
+</div>
+
+<div class="bottom-buttons-stack">
+    <a href="../index.html" class="back-home-link">← ACCUEIL</a>
+    <a href="https://ton-lien-1.com" target="_blank" class="back-home-link">Next project</a>
+    <a href="https://ton-lien-2.com" target="_blank" class="back-home-link">Previus project</a>
+</div>
+
+<template id="tpl-player">
+    <h1>Player</h1>
+
+
+    <div class="panel-row-layout">
+
+
+        <div class="panel-col-media">
+            <img src="../assets/sponge/gif/SpongeFillAndShoot.gif" alt="Fluid Simulation" style="border-radius:12px; border: 3px solid #1a1a1a;">
+        </div>
+
+
+        <div class="panel-col-text">
+            <h2 style="margin-top: 0;">Shoot</h2>
+            <p>As sponges, we scrub the floor as we move, automatically cleaning it.
+                But we can also soak up water from sinks and spit out bubbles to clean the floor and even defeat monsters!</p>
+        </div>
+
+    </div>
+
+    <div class="panel-row-layout">
+
+
+
+        <div class="panel-col-text">
+            <h2 style="margin-top: 0;">Ultimate</h2>
+            <p>We also have an ultimate ability that charges by defeating enemies.
+                Once ready, it lets us launch a giant bubble that explodes on the ground, cleaning a large area and dealing area-of-effect damage.</p>
+        </div>
+
+        <div class="panel-col-media">
+            <img src="../assets/sponge/gif/SpongeUltimate.gif" alt="Fluid Simulation" style="border-radius:12px; border: 3px solid #1a1a1a;">
+        </div>
+
+    </div>
+
+</template>
+
+<template id="tpl-presentation">
+    <h1>Project presentation</h1>
+
+
+    <div class="panel-row-layout">
+
+
+        <div class="panel-col-media">
+            <video controls style="width: 100%; border-radius: 12px; border: 3px solid #1a1a1a; box-shadow: 4px 4px 0px #1a1a1a; display: block;">
+                <source src="../assets/sponge/video/SpongeVideo.mp4" type="video/mp4">
+                Votre navigateur ne supporte pas la lecture de vidéos.
+            </video>
+        </div>
+
+
+        <div class="panel-col-text">
+            <h2 style="margin-top: 0;">"Coeur de ville en lumière" Montpellier</h2>
+            <p>Sponge was a project commissioned by the city of Montpellier for their annual event “Cœur de Ville en Lumière.” The goal was to create a 2-player game lasting 3 minutes, projected onto the wall of the Agora amphitheater in Montpellier.
+                <br>
+                <br>
+                Players control sponges that must clean the wall while fighting off monsters that keep trying to make it dirty again. The objective is to score as many points as possible for the leaderboard.
+                <br>
+                <br>
+                It was a side project developed alongside our final year project.
+            </p>
+        </div>
+
+    </div>
+
+</template>
+
+<template id="tpl-Optimization">
+    <h1>Optimization</h1>
+
+
+    <div class="panel-row-layout">
+
+
+        <div class="panel-col-media">
+            <img src="../assets/sponge/image/ScaledRTV.png" alt="Fluid Simulation" style="border-radius:12px; border: 3px solid #1a1a1a;">
+        </div>
+
+
+        <div class="panel-col-text">
+            <h2 style="margin-top: 0;">What we have did ?</h2>
+            <p>Points are earned by having the cleanest surface area on the wall.
+                To determine this, we analyze the RVT texture and calculate the percentage of visible dirt — pixel by pixel, for accuracy.
+                However, this method is quite heavy in terms of performance.
+                <br>
+                <br>
+                To optimize, we use a smaller texture that mirrors the RVT, allowing for much lighter calculations and preventing lag on the hardware provided for the event.
+                <br>
+                <br>
+                Instead of checking 1 048 576 pixels on a 1024x1024 texture for high in-game quality, we only check 4 096 pixels using a dedicated 64x64 texture for calculations.
+                This saves 1920 pixels from being processed. While it slightly reduces precision, the performance gain makes it well worth it.
+            </p>
+        </div>
+
+    </div>
+
+</template>
+
+
+<script src="../js/panel-manager.js"></script>
+<script src="../js/general-ui.js"></script>
+<script src="../js/bubble-core.js"></script>
+<script src="../js/motion-gravity.js"></script>
+<script src="../js/steam-explorer.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+
+        if (typeof BubbleEngine !== 'undefined') {
+            new BubbleEngine();
+        }
+
+
+        if (window.BubbleGlobals && window.BubbleGlobals.panelManager) {
+            window.BubbleGlobals.panelManager.open({
+                template: 'tpl-presentation'
+            });
+        }
+    });
+</script>
+
+</body>
+</html>

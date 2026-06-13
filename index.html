@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Évolutif - Game Dev</title>
+    <title>Portfolio Timothée Fontan</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=VT323&display=swap" rel="stylesheet">
@@ -25,28 +25,33 @@
     </div>
 
     <nav class="header-nav">
-        <a href="about.html" class="nav-link">About me</a>
         <a href="contact.html" class="nav-link">Contact</a>
     </nav>
 </header>
 
 <div id="canvas-container">
 
-    <div id="help-popup" class="help-popup">
-        <button class="close-popup-btn" aria-label="Fermer">&times;</button>
+    <div class="help-info-card">
         <div class="popup-content">
             <span class="popup-icon">💡</span>
             <div class="popup-text">
-                <h3>Explorez l'espace !</h3>
-                <p><strong>Survolez</strong> une bulle pour en savoir plus, <strong>attrapez-la</strong> pour la déplacer et <strong>cliquez</strong> pour l'ouvrir.</p>
+                <h3>How visit it !</h3>
+                <p><strong>Hover</strong> a bubble for more info, you can <strong>play</strong> by drag it and <strong>click</strong> for open it !</p>
+
+                <p class="help-legend-important">
+                    <span class="legend-star-container">
+                        <span class="legend-star">★</span>
+                    </span>
+                   <strong>My proudest projects have a STAR</strong>
+                </p>
             </div>
         </div>
-        <button class="confirm-popup-btn">J'ai compris !</button>
     </div>
 
     <div class="bubble-project motion attraction"
          data-size="400"
          data-type="link"
+         data-important="true"
          data-img="assets/mainPage/giff/CDMainPage.gif"
          data-text="CoreDefender"
          data-tags="C++:#B163FF, Unreal Engine 5:#305CDE, School Project:#CC7722, PC:#008000"
@@ -56,10 +61,11 @@
     <div class="bubble-project motion attraction"
          data-size="300"
          data-type="link"
+         data-important="true"
          data-img="assets/mainPage/image/SpongeIndex.png"
          data-text="Sponge - Coeur de ville en lumière"
          data-tags="Blueprint:#B163FF, Unreal Engine:#305CDE, School Project:#CC7722, Wall/PC:#008000"
-         data-url="Create new scratch file from selection">
+         data-url="htmlPage/SpongePage.html">
     </div>
 
     <div class="bubble-project motion attraction"
@@ -95,7 +101,7 @@
          data-img="assets/mainPage/image/ListrickIndex.png"
          data-text="Listrik"
          data-tags="Javascript:#B163FF, Phaser:#305CDE, School Project:#CC7722, Web:#008000"
-         data-url="Create new scratch file from selection">
+         data-url="htmlPage/ListrikPage.html">
     </div>
 
     <div class="bubble-project motion attraction"
@@ -108,8 +114,9 @@
     </div>
 
     <div class="bubble-project motion attraction"
-         data-size="180"
+         data-size="300"
          data-type="panel"
+         data-important="true"
          data-img="assets/mainPage/image/profilePicture.png"
          data-template="tpl-aboutme"
          data-tags="More about me:#ff9ebb"
@@ -129,46 +136,48 @@
     <div class="panel-body"></div>
 </div>
 
-<div id="about-overlay" class="ui-overlay">
-    <div class="overlay-card">
-        <button class="close-overlay-btn" aria-label="Fermer">&times;</button>
-        <h3>About me</h3>
-        <p>Test <strong>Test strong</strong> test continuité</p>
-        <div class="skills-container">
-            <h4>Stack Technique</h4>
-            <div class="skills-tags">
-                <span>Unreal Engine</span><span>Unity</span><span>C++</span><span>C#</span>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div id="contact-overlay" class="ui-overlay">
     <div class="overlay-card">
         <button class="close-overlay-btn" aria-label="Fermer">&times;</button>
         <h3>Me contacter</h3>
         <div class="contact-methods">
             <a href="mailto:timothee.fontan@gmail.com" class="contact-item">📧 timothee.fontan@gmail.com</a>
-            <a href="https://linkedin.com" target="_blank" class="contact-item">💼 LinkedIn</a>
+            <a href="https://www.linkedin.com/in/timoth%C3%A9e-fontan-943210228/" target="_blank" class="contact-item">💼 LinkedIn</a>
         </div>
     </div>
 </div>
 
 <template id="tpl-aboutme">
     <h1>About me</h1>
-    <div class="gif-container" style="text-align: center; margin: 20px 0;">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3B0ZndpNm1uZXp5bXN0Y2g5Y29ndm94N3Znd2N0YjZpZndidm9pbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3knKct3fGqxhK/giphy.gif" alt="Fluid Simulation" style="width:100%; border-radius:12px; border: 3px solid #1a1a1a;">
-        <em style="font-size: 14px; color: #444; font-family: 'VT323', monospace; display:block; margin-top:5px;">Démonstration en temps réel du solveur de particule (Unity)</em>
-    </div>
-    <h2>Description Technique</h2>
-    <p>Ce volet intègre nativement du contenu riche. Tu peux même y insérer des balises de vidéo HTML5 standard ou des iframes YouTube :</p>
-    <p>Le fait de travailler directement dans le template HTML t'évite d'avoir à modifier tes codes JavaScript lorsque tu ajoutes de nouvelles étapes ou des images à tes comptes-rendus de dev.</p>
-</template>
+
+    <p>My name is <strong>Timothée Fontan</strong>, and I am 23 years old. I have been passionate about video game since I was 7 years old, thaks to my grandma who play with me at<strong> Sonic the Hedgehog 2 on Master System II.</strong></p>
+    <p>I learn about game creation with scratch in middle school and from that moment, I knew I wanted to make this passion my job. I learned programming in high school, and then I went to<strong> ESMA Game</strong> in Montpellier to learn how realy create video games and make my dream a reality.</p>
+    <p>Now I am a<strong> freelance game developer and project manager</strong> in the video game industry, and I am also a<strong> teacher at game development school</strong>, helping student like I once was become part of this industry.</p>
+
+    <h2> Link : </h2>
+    <a href="https://kancabricot.itch.io/" class="contact-item">Itch.io</a>
+   </template>
 
 <script src="js/panel-manager.js"></script>
 <script src="js/general-ui.js"></script>
 <script src="js/bubble-core.js"></script>
 <script src="js/motion-attraction.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        // Initialisation de ton moteur de bulles
+        if (typeof BubbleEngine !== 'undefined') {
+            new BubbleEngine();
+        }
+
+        // --- FORCE L'OUVERTURE D'UN PANEL AU CHARGEMENT ---
+        if (window.BubbleGlobals && window.BubbleGlobals.panelManager) {
+            window.BubbleGlobals.panelManager.open({
+                template: 'tpl-aboutme' // Mets ici l'ID du <template> que tu veux ouvrir par défaut
+            });
+        }
+    });
+</script>
 
 <script>
     window.addEventListener('DOMContentLoaded', () => {

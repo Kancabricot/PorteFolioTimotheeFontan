@@ -76,6 +76,19 @@ class BaseBubble {
 
             this.el.appendChild(info);
         }
+
+        if (this.el.dataset.important === 'true') {
+            // Conteneur invisible pour le positionnement de l'étoile
+            const pinContainer = document.createElement('div');
+            pinContainer.className = 'bubble-important-pin';
+
+            const star = document.createElement('span');
+            star.className = 'bubble-important-star';
+            star.innerHTML = '★';
+
+            pinContainer.appendChild(star);
+            this.el.appendChild(pinContainer);
+        }
     }
 
     bindEvents() {

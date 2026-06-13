@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails du Projet - Listrik</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=VT323&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/main-style.css">
+    <link rel="stylesheet" href="../css/bubbles.css">
+    <link rel="stylesheet" href="../css/steam-explorer.css">
+</head>
+
+<body>
+
+<header id="main-header" class="project-header">
+
+    <div class="header-decor-img left-decor">
+        <img src="../assets/listrik/image/ListrikLogo.png" alt="Décor Gauche">
+    </div>
+
+    <div class="header-project-title">
+        <h1>Listrik</h1>
+        <p class="project-subtitle">First game & Web game</p>
+    </div>
+
+    <div class="header-right-side">
+        <a href="https://kancabricot.itch.io/listriks-adventure" target="_blank" class="project-action-btn">
+            See project 🚀
+        </a>
+
+        <div class="header-decor-img right-decor">
+            <img src="../assets/listrik/image/ListrikBatLogo.png" alt="Décor Droite">
+        </div>
+    </div>
+</header>
+
+
+<div id="canvas-container">
+
+    <div class="bubble-project motion gravity"
+         data-size="325"
+         data-type="panel"
+         data-img="../assets/listrik/gif/ListrikHUB.gif"
+         data-text="Project presentation"
+         data-tags="presentation: #B163FF"
+         data-template="tpl-presentation">
+    </div>
+
+    <div class="bubble-project motion gravity"
+         data-size="400"
+         data-type="panel"
+         data-img="../assets/sponge/gif/SpongeFillAndShoot.gif"
+         data-text="Sponge Player"
+         data-tags="presentation: #B163FF"
+         data-template="tpl-player"
+         data-url="https://www.youtube.com/watch?v=Aq5WXmQQooo">
+    </div>
+
+    <div class="bubble-project motion gravity"
+         data-size="350"
+         data-type="panel"
+         data-important="true"
+         data-img="../assets/forAllProject/OptimizationLogo.jpg"
+         data-text="Optimization"
+         data-tags="presentation: #B163FF"
+         data-template="tpl-game">
+    </div>
+
+</div>
+
+<div id="project-panel" class="side-panel">
+    <div class="panel-os-bar">
+        <span id="panel-title-header">Fiche Projet</span>
+        <div class="panel-controls">
+            <button id="panel-btn-maximize" title="Agrandir">🗖</button>
+            <button id="panel-btn-close" title="Fermer">✕</button>
+        </div>
+    </div>
+    <div class="panel-body"></div>
+</div>
+
+<div class="bottom-buttons-stack">
+    <a href="../index.html" class="back-home-link">← ACCUEIL</a>
+    <a href="https://ton-lien-1.com" target="_blank" class="back-home-link">Next project</a>
+    <a href="https://ton-lien-2.com" target="_blank" class="back-home-link">Previus project</a>
+</div>
+
+<template id="tpl-game">
+    <h1>Listrik - The Game</h1>
+
+    <div style="margin-bottom: 30px;">
+        <h2 style="margin-top: 0;">Play the game !</h2>
+        <p style="font-family: 'VT323', monospace; font-size: 20px; color: #555;">Move with Q/A and D <br> Z/W for jump <br> E for interact </p>
+
+        <div class="game-panel-container" style="position: relative; width: 100%; aspect-ratio: 16/9; max-height: 500px; border: 4px solid #1a1a1a; box-shadow: 6px 6px 0px #1a1a1a; border-radius: 12px; overflow: hidden; background-color: #000;">
+            <iframe src="../ListrikGame/index.html" style="width: 100%; height: 100%; border: none; display: block;"></iframe>
+        </div>
+    </div>
+</template>
+
+<template id="tpl-presentation">
+    <h1>Project presentation</h1>
+        <div class="panel-col-text">
+            <h2 style="margin-top: 0;">Presentation</h2>
+            <p>Listrik is my very first video game project, which I developed entirely on my own.
+                It gave me the opportunity to explore and experiment with all the stages of video game production, from start to finish.
+                <br>
+                <br>
+                This is a single-player puzzle-platformer where the goal is to solve levels designed around a battery mechanic carried by a small robot named Listrik.
+                <br>
+                <br>
+                The game was designed to run as a web page using JavaScript and the Phaser 3 framework.
+            </p>
+        </div>
+    <div class="panel-col-media">
+        <img src="../assets/listrik/image/ListrikPresentationPage.png" alt="Fluid Simulation" style="border-radius:12px; border: 3px solid rgba(34,34,34,0);">
+    </div>
+    <h1 style="margin-top: 0;">You can play it directly on the site !<br> Take the bubble with gamepad</h1>
+
+</template>
+
+
+
+<script src="../js/panel-manager.js"></script>
+<script src="../js/general-ui.js"></script>
+<script src="../js/bubble-core.js"></script>
+<script src="../js/motion-gravity.js"></script>
+<script src="../js/steam-explorer.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+
+        if (typeof BubbleEngine !== 'undefined') {
+            new BubbleEngine();
+        }
+
+
+        if (window.BubbleGlobals && window.BubbleGlobals.panelManager) {
+            window.BubbleGlobals.panelManager.open({
+                template: 'tpl-presentation'
+            });
+        }
+    });
+</script>
+
+</body>
+</html>
